@@ -26,14 +26,12 @@ namespace ConsoleApp
                 Console.Write("Enter bet: ");
                 var bet = Console.ReadLine();
 
-                // обмениваемся сообщениями с сервером
                 var request = new BetRequest { Bet = Convert.ToInt32(bet) };
                 var reply = await client.RaiseBetAsync(request);
                 Console.WriteLine(reply.Message);
             }
         }
 
-        //этот костыль нужен для MacOS из-за https сертификатов, мб для винды тоже нужен, хз
         private static HttpClientHandler GetHttpClientHandler()
         {
             var httpHandler = new HttpClientHandler();
