@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option csharp_namespace = "Server";
+
+package auction;
+
+// The greeting service definition.
+service Auction {
+  // Sends a greeting
+  rpc RaiseBet (BetRequest) returns (ServerReply);
+}
+
+// The request message containing the user's name.
+message BetRequest {
+  int32 bet = 1;
+}
+
+// The response message containing the greetings.
+message ServerReply {
+  string message = 1;
+}
